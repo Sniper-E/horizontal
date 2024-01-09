@@ -1,0 +1,42 @@
+{
+	"name": "sniper/horizontal",
+	"type": "phpbb-extension",
+	"description": "Aligns horizontal inline attachments.",
+	"homepage": "https://www.sniper-e.net",
+	"version": "1.0.0",
+	"time": "2024-01-10",
+	"keywords": [
+		"phpbb",
+		"extension",
+		"horizontal",
+		"attachments"
+	],
+	"license": "GPL-2.0-only",
+	"authors": [
+		{
+			"name": "Sniper_E",
+			"homepage": "https://www.sniper-e.net",
+			"sitename": "Sniper_E Styles",
+			"role": "Extension Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3",
+		"composer/installers": "~1.0"
+	},
+	"require-dev": {
+		"phpbb/epv": "dev-master"
+	},
+	"extra": {
+		"display-name": "Horizontal Attachments",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.3.0,<4.0.0@dev"
+		},
+		"version-check": {
+			"host": "www.sniper-e.net",
+			"directory": "/versions",
+			"filename": "horizontal_version.json",
+			"ssl": true
+		}
+	}
+}
