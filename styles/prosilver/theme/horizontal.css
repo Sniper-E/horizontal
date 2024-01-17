@@ -1,0 +1,86 @@
+/**
+* @package phpBB Extension - Horizontal Attachments
+* @copyright (c) 2024 Sniper_E - https://www.sniper-e.com
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* @style prosilver
+*/
+
+/* Horizontal Attachments */
+div.inline-attachment {
+	display: inline-block;
+	max-width: 30% !important;
+}
+
+div.inline-attachment dl.thumbnail,
+div.inline-attachment dl.file {
+	display: block;
+	margin-right: 4px;
+	max-width: 100% !important;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+}
+
+div.inline-attachment .postbody img.postimage {
+	background-color: #A4C0D7;
+	padding: 1px;
+}
+
+div.inline-attachment dl.file dd {
+	background-color: #cadceb;
+	padding: 4px;
+	margin: 2px 0 -6px;
+	border: 5px solid #6290B7;
+	border-top: none;
+}
+
+div.inline-attachment dl.file dt {
+	background-color: #6290B7;
+	padding: 4px;
+    margin: 4px 0 -6px;
+	border-radius: 5px 5px 0 0;
+	border-bottom: none;
+}
+
+div.inline-attachment dl.file dt a {
+	color: white !important;
+	padding: 2px 6px 6px;
+	border-bottom: none;
+}
+
+div.inline-attachment dl.file dt a:hover {
+	background: #cadceb !important;
+	color: #105289 !important;
+	border-radius: 5px 5px 0 0;
+}
+
+/* Horizontal Downloadlog Attachments */
+div.inline-attachment dl.extra-box,
+div.inline-attachment dl.filedoawnload {
+	display: block;
+	margin: 0 4px 4px 0;
+	max-width: 100% !important;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+}
+
+div.inline-attachment dl.filedoawnload img.postimage {
+    background-color: #A4C0D7;
+	padding: 2px;
+}
+
+div.inline-attachment dl.filedoawnload dt {
+    background-color: #6290B7;
+    padding: 4px;
+    margin: 4px 4px -6px 0;
+	border-radius: 5px 5px 0 0;
+}
+
+div.inline-attachment dl.filedoawnload dd {
+    background-color: #cadceb;
+    padding: 4px;
+    margin: 2px 4px -6px 0;
+    border: 5px solid #6290B7;
+    border-top: none;
+}
