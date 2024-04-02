@@ -1,0 +1,20 @@
+
+		{% if _file.S_THUMBNAIL %}
+		<table class="attach-thumbs" title="{% if _file.COMMENT %}{_file.COMMENT} {% endif %}{_file.DOWNLOAD_NAME} ({_file.FILESIZE} {_file.SIZE_LANG})"><tr>
+			<th><a href="{_file.U_DOWNLOAD_LINK}"><img src="{_file.THUMB_IMAGE}" class="postimage" alt="{% if _file.COMMENT %}{{ _file.COMMENT|e('html') }}{% else %}{{ _file.DOWNLOAD_NAME }}{% endif %}" /></a></th></tr>
+		</table>
+		{% endif %}
+
+		{% if _file.S_IMAGE %}
+		<table class="attach-images" title="{% if _file.COMMENT %}{_file.COMMENT} {% endif %}{_file.DOWNLOAD_NAME} ({_file.FILESIZE} {_file.SIZE_LANG})" onclick="viewableArea(this);"><tr>
+			<th class="attach-image"><img src="{_file.U_INLINE_LINK}" class="postimage" alt="{% if _file.COMMENT %}{{ _file.COMMENT|e('html') }}{% else %}{{ _file.DOWNLOAD_NAME }}{% endif %}" /></th></tr>
+		</table>
+		{% endif %}
+
+		{% if _file.S_FILE %}
+		<table class="attach-files" title="({_file.FILESIZE} {_file.SIZE_LANG}) {_file.L_DOWNLOAD_COUNT}"><tr>
+			<th>{% if _file.UPLOAD_ICON %}{_file.UPLOAD_ICON} {% endif %}<a class="postlink" href="{_file.U_DOWNLOAD_LINK}">{_file.DOWNLOAD_NAME}</a></th></tr>
+			{% if _file.COMMENT %}<tr><td>{_file.COMMENT}</td></tr>{% endif %} 
+			{% if U_DOWNLOADLOG && (U_MCP || U_ACP) && SCRIPT_NAME == viewtopic %}<tr><td class="attach-logs"><a href="{{ U_DOWNLOADLOG }}?file={{ _file.U_FILE_ID }}" onclick="popup(this.href, 950, 350); return false;" style="float: right" title="{{ lang('DOWNLOADLOG_VIEW_LOG') }} {{ _file.U_FILE_ID }}" >{{ lang('DOWNLOADLOG_VIEW_LOG') }}</a></td></tr>{% endif %}
+		</dl></table>
+		{% endif %}

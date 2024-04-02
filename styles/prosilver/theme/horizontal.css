@@ -1,86 +1,142 @@
 /**
 * @package phpBB Extension - Horizontal Attachments
-* @copyright (c) 2024 Sniper_E - https://www.sniper-e.com
+* @copyright (c) 2024 Sniper_E - https://www.sniper-e.net
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
-* @style prosilver
-*/
+* @style prosilver */
 
-/* Horizontal Attachments */
-div.inline-attachment {
-	display: inline-block;
-	max-width: 30% !important;
-}
-
+/* Hide filedownload, dowloadlog and default attachments */ 
+div.inline-attachment dl.file,
+div.inline-attachment dl.files,
 div.inline-attachment dl.thumbnail,
-div.inline-attachment dl.file {
-	display: block;
-	margin-right: 4px;
-	max-width: 100% !important;
-	font-size: 1em;
+div.inline-attachment dl.doawnload,
+div.inline-attachment dl.filedoawnload,
+div.inline-attachment div.download-blocks,
+dl.attachbox div.download-blocks,
+dl.attachbox dl.filedoawnload,
+dl.attachbox dl.image,
+dl.attachbox dl.file {
+	display: none !important;
+}
+
+/* Hide filedownload down arrow image */
+div.inline-attachment dl::before {
+    background: none;
+}
+
+/* Begin horizontal attachments */
+div.inline-attachment{
+	background: transparent;
+	display: inline-block;
+	font-size: 1.2em;
+	max-width: 24%;
+	margin-right: 8px;
+	vertical-align: top;	
+	border: none;
+}
+
+dl.attachbox {
+	background: transparent;
+	border: none;
+}
+
+div.inline-attachment table.attach-thumbs,
+div.inline-attachment table.attach-images {
 	font-weight: bold;
 	text-align: center;
 }
 
-div.inline-attachment .postbody img.postimage {
-	background-color: #A4C0D7;
-	padding: 1px;
+/* Prosilver blue download box */
+div.inline-attachment table.attach-files,
+dl.attachbox table.attach-files {
+	background: rgba(0, 0, 0, 0) linear-gradient(170deg, #cadceb 0%, #4BA1CC 50%, #cadceb 100%) repeat scroll 0 0;
+	font-size: 0.9em;
+	border: 1px solid #4BA1CC;
+	border-radius: 5px;
+	border-collapse: separate;}
+
+/* Optional orange download box eg: <table class="attach-files orange" */ 
+div.inline-attachment table.attach-files.orange {
+    background: rgba(0, 0, 0, 0) linear-gradient(170deg, #ffc561 0%, #ff8a2b 50%, #ffc561 100%) repeat scroll 0 0;
+	border: 1px solid #ff8a2b;
 }
 
-div.inline-attachment dl.file dd {
-	background-color: #cadceb;
-	padding: 4px;
-	margin: 2px 0 -6px;
-	border: 5px solid #6290B7;
-	border-top: none;
+/* Add fa-download icon in the download box */
+div.inline-attachment table.attach-files th::before,
+dl.attachbox table.attach-files th::before {
+    float: right;
+	font-family: FontAwesome;
+	font-size: 2em;
+    content: "\f019";
+	color: #fff;
+	margin: -5px 5px 0 10px;
+    text-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
-div.inline-attachment dl.file dt {
-	background-color: #6290B7;
-	padding: 4px;
-    margin: 4px 0 -6px;
-	border-radius: 5px 5px 0 0;
-	border-bottom: none;
+dl.attachbox table.attach-files th::before {
+	margin: 0 5px 0 10px;
 }
 
-div.inline-attachment dl.file dt a {
-	color: white !important;
-	padding: 2px 6px 6px;
-	border-bottom: none;
+div.inline-attachment table.attach-files th {
+    padding-top: 5px;
 }
 
-div.inline-attachment dl.file dt a:hover {
-	background: #cadceb !important;
-	color: #105289 !important;
-	border-radius: 5px 5px 0 0;
+/* Attached image border */
+div.inline-attachment table.attach-thumbs th img,
+div.inline-attachment table.attach-images th img,
+dl.attachbox th.attach-image img {
+	background: #cadceb;
+	padding: 6px;
+	border: 1px solid #3790BD;
+	border-radius: 5px;
 }
 
-/* Horizontal Downloadlog Attachments */
-div.inline-attachment dl.extra-box,
-div.inline-attachment dl.filedoawnload {
-	display: block;
-	margin: 0 4px 4px 0;
-	max-width: 100% !important;
-	font-size: 1em;
+/* Attached file download links */
+div.inline-attachment table.attach-files th a,
+dl.attachbox table.attach-files th a {
+    text-transform: uppercase;
+	color: #105289;
+	padding: 5px;
+	border: none;
+}
+
+div.inline-attachment table.attach-files th a:hover,
+dl.attachbox table.attach-files th a:hover {
+	background: rgba(112, 178, 212, 0.4);
+	color: #D31141;
+	text-decoration: underline;
+	border-radius: 5px;
+}
+
+/* Attached file comments */
+div.inline-attachment table.attach-files td,
+dl.attachbox table.attach-files td {
+	background: transparent;
+	color: #fff !important;
+	padding: 0 7px 5px;
 	font-weight: bold;
-	text-align: center;
+	white-space: nowrap;
 }
 
-div.inline-attachment dl.filedoawnload img.postimage {
-    background-color: #A4C0D7;
-	padding: 2px;
+/* Download logs link*/
+div.inline-attachment table.attach-files td.attach-logs {
+	padding-top: 0px;
 }
 
-div.inline-attachment dl.filedoawnload dt {
-    background-color: #6290B7;
-    padding: 4px;
-    margin: 4px 4px -6px 0;
-	border-radius: 5px 5px 0 0;
+/* Begin responsive */
+@media (max-width: 1480px) {
+	div.inline-attachment {
+		max-width: 32% !important;
+	}
 }
 
-div.inline-attachment dl.filedoawnload dd {
-    background-color: #cadceb;
-    padding: 4px;
-    margin: 2px 4px -6px 0;
-    border: 5px solid #6290B7;
-    border-top: none;
+@media (max-width: 1024px) {
+	div.inline-attachment {
+		max-width: 48% !important;
+	}
+}
+
+@media (max-width: 600px) {
+	div.inline-attachment {
+		max-width: 97% !important;
+	}
 }
